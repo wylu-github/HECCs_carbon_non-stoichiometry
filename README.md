@@ -27,6 +27,7 @@ This repository contains scripts and models for predicting mechanical properties
 └── requirements.txt        # Dependencies for the project
 ```
 
+## Description of Key Files
 ### Mechanical Property Prediction (`mechanical_prediction`)
 
 - **get_mechanical_features.py**: Extracts features related to mechanical properties from given structure files. This includes calculating atomic environments and descriptors required for model training and prediction.
