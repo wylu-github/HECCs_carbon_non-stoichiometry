@@ -1,10 +1,31 @@
 # Non-stoichiometric HECCs Prediction Repository
 
-This repository contains machine learning tools and feature extraction functions designed for predicting mechanical properties and carbon vacancy formation energies in high-entropy carbide ceramics (HECCs). The repository is organized into modules for prediction of mechanical properties and carbon vacancy formation energies.
+This repository contains scripts and models for predicting mechanical properties and carbon vacancy formation energies of high-entropy carbide ceramics.
 
 ## Directory Structure
 
-Each prediction task (mechanical properties and vacancy formation energies) is organized in its own folder. Below is an outline of the files and their purposes within each directory.
+```plaintext
+├── data
+│   └── structures          # Structure files for input data
+│       ├── 2-metal-sqs1    # Configurations for 2-metal systems
+│       ├── 2-metal-sqs2
+│       ├── 3-metal-sqs1    # Configurations for 3-metal systems
+│       ├── 3-metal-sqs2
+│       ├── 3-metal-sqs3
+│       └── 4-metal-sqs     # Configurations for 4-metal systems
+├── mechanical_prediction   # Scripts and models for mechanical property prediction
+│   ├── get_mechanical_features.py      # Extracts features for mechanical prediction
+│   ├── predict_mechanical_properties.py # Loads models to predict properties for new data
+│   └── train_mechanical_model.py       # Trains models for mechanical property prediction
+├── models                  # Saved models for both mechanical and vacancy predictions
+│   ├── mechanical_prediction
+│   └── vacancy_prediction
+├── vacancy_prediction      # Scripts and models for carbon vacancy prediction
+│   ├── get_vacancy_features.py        # Extracts features for vacancy prediction
+│   ├── predict_vacancy_properties.py   # Loads models to predict vacancy formation energy
+│   └── train_vacancy_model.py         # Trains models for vacancy property prediction
+└── requirements.txt        # Dependencies for the project
+```
 
 ### Mechanical Property Prediction (`mechanical_prediction`)
 
