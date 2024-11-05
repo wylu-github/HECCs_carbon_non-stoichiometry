@@ -1,65 +1,45 @@
-# HECCs_carbon_vacancies
-# Material Property Prediction
+# Material Property Prediction Repository
 
-This repository contains tools for predicting the mechanical properties and carbon vacancy formation energies of metal carbide ceramics. The repository includes machine learning models and feature extraction functions organized to enable efficient predictions based on input crystal structures.
+This repository contains machine learning tools and feature extraction functions designed for predicting mechanical properties and carbon vacancy formation energies in metal carbide ceramics. The repository is organized into modules for mechanical property prediction and vacancy prediction.
 
-├── data │ └── structures # Directory containing input structure files for predictions │ ├── 2-metal-sqs1 # 2-metal SQS structure files │ ├── 2-metal-sqs2 │ ├── 3-metal-sqs1 # 3-metal SQS structure files │ ├── 3-metal-sqs2 │ ├── 3-metal-sqs3 │ └── 4-metal-sqs ├── mechanical_prediction # Directory containing scripts for mechanical property prediction │ └── pycache ├── models # Directory containing trained models for predictions │ ├── mechanical_prediction # Trained models for predicting mechanical properties │ └── vacancy_prediction # Trained models for predicting vacancy formation energies └── vacancy_prediction # Directory containing scripts for vacancy prediction └── pycache
+## Directory Structure
 
-markdown
-复制代码
+Each prediction task (mechanical properties and vacancy formation energy) is organized in its own folder. Below is an outline of the files and their purposes within each directory.
 
-### Folders
+### Mechanical Property Prediction (`mechanical_prediction`)
 
-- **data/structures**: Contains the structure files for various metal compositions, organized by metal count and sequence.
-- **mechanical_prediction**: Contains Python scripts for predicting mechanical properties (Elastic Modulus, Shear Modulus, Bulk Modulus) of input structures.
-- **models**: Contains pre-trained machine learning models. The models are stored separately for mechanical property prediction and vacancy prediction.
-- **vacancy_prediction**: Contains Python scripts for predicting carbon vacancy formation energy for given structures.
+- **get_mechanical_features.py**: Extracts features related to mechanical properties from given structure files. This includes calculating atomic environments and descriptors required for model training and prediction.
+  
+- **predict_mechanical_properties.py**: Loads trained models and makes predictions of mechanical properties (e.g., Elastic Modulus, Shear Modulus, Bulk Modulus) for each carbon atom in the provided structure file.
+  
+- **train_mechanical_model.py**: Trains machine learning models for predicting mechanical properties. It loads data, preprocesses features, and saves trained models in the `models/mechanical_prediction` directory for later use.
 
-## Installation
+### Vacancy Formation Energy Prediction (`vacancy_prediction`)
 
-Clone the repository and ensure you have the required Python libraries installed. You can install dependencies with:
+- **get_vacancy_features.py**: Extracts features required for predicting vacancy formation energy in metal carbides. This includes descriptors related to local atomic environments and structural characteristics around potential vacancy sites.
+  
+- **predict_vacancy_properties.py**: Loads pre-trained models to predict vacancy formation energies at each carbon site in a given structure file.
+  
+- **train_vacancy_model.py**: Trains machine learning models for vacancy formation energy prediction. It handles data loading, feature extraction, model training, and saves the resulting models to the `models/vacancy_prediction` directory.
 
+## Models
+
+The trained models are stored in the `models` directory:
+- `models/mechanical_prediction`: Stores models for mechanical property predictions.
+- `models/vacancy_prediction`: Stores models for vacancy formation energy predictions.
+
+## Usage
+
+1. **Feature Extraction**: Use the feature extraction scripts (`get_mechanical_features.py` and `get_vacancy_features.py`) to obtain relevant descriptors from your structure files.
+  
+2. **Prediction**: Run the prediction scripts (`predict_mechanical_properties.py` and `predict_vacancy_properties.py`) on extracted features to obtain predictions.
+
+3. **Training**: To retrain models with new data, use the training scripts (`train_mechanical_model.py` and `train_vacancy_model.py`).
+
+## Requirements
+
+Install dependencies with:
 ```bash
 pip install -r requirements.txt
-Requirements:
-
-Python 3.8+
-Scikit-Learn
-Pymatgen
-Pandas
-Numpy
-Usage
-Predicting Mechanical Properties
-To predict mechanical properties for a specific structure, place the .vasp file in the appropriate folder within data/structures, then run the mechanical prediction script as follows:
-
-bash
-复制代码
-python mechanical_prediction/predict_mechanical.py --structure data/structures/3-metal-sqs1/POSCAR.vasp
-The script will output the predicted Elastic Modulus (E), Shear Modulus (G), and Bulk Modulus (B) for each carbon atom site in the given structure.
-
-Predicting Vacancy Formation Energies
-To predict carbon vacancy formation energies, use the vacancy prediction script as follows:
-
-bash
-复制代码
-python vacancy_prediction/predict_vacancy.py --structure data/structures/3-metal-sqs1/POSCAR.vasp
-The script will output the predicted vacancy formation energy for each carbon atom site.
-
-Models
-Trained models are stored in the models folder. Each model is saved in .pkl format and can be loaded directly for predictions:
-
-mechanical_prediction: Contains models for mechanical properties.
-vacancy_prediction: Contains models for predicting vacancy formation energy.
-Contributing
-Feel free to open issues or submit pull requests if you would like to contribute to the project.
-
-License
-This project is licensed under the MIT License.
-
-复制代码
-
-
-
-
 
 
