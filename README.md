@@ -1,10 +1,10 @@
-# Material Property Prediction Repository
+# Non-stoichiometric HECCs Prediction Repository
 
-This repository contains machine learning tools and feature extraction functions designed for predicting mechanical properties and carbon vacancy formation energies in metal carbide ceramics. The repository is organized into modules for mechanical property prediction and vacancy prediction.
+This repository contains machine learning tools and feature extraction functions designed for predicting mechanical properties and carbon vacancy formation energies in high-entropy carbide ceramics (HECCs). The repository is organized into modules for prediction of mechanical properties and carbon vacancy formation energies.
 
 ## Directory Structure
 
-Each prediction task (mechanical properties and vacancy formation energy) is organized in its own folder. Below is an outline of the files and their purposes within each directory.
+Each prediction task (mechanical properties and vacancy formation energies) is organized in its own folder. Below is an outline of the files and their purposes within each directory.
 
 ### Mechanical Property Prediction (`mechanical_prediction`)
 
